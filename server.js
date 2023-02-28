@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 8000;
 //import {client} from './db.js'
 import cors from 'cors';
 import dotenv from 'dotenv'
+import path from 'path'
 import pkg from "pg";
 const {Pool} = pkg;
 
