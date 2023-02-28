@@ -7,7 +7,7 @@ export default function AddNewItem({ setQty, qty, setNewItem, addToList, isPlace
     const handleSubmit = (e) => {
         e.preventDefault();
         const inputValue = inputRef.current.value;
-        console.log(inputValue);
+        //console.log(inputValue);
         setNewItem(inputValue)
     }
 
@@ -26,12 +26,13 @@ export default function AddNewItem({ setQty, qty, setNewItem, addToList, isPlace
         } else {
             setQty(inputQty);
         }
-        console.log(inputQty)
+        //console.log(inputQty)
     }
 
     const handleAddToList = () => {
         addToList(); //function in app component
         inputRef.current.value = ""; // clear input field
+        
         setQty(0)
       };
 
@@ -39,8 +40,9 @@ export default function AddNewItem({ setQty, qty, setNewItem, addToList, isPlace
     return (
         <div id="new-item">
             <form onSubmit ={handleSubmit}>
-                <input className = "new-item-name" type="text" placeholder= {isPlaceholder ? "Add New Item Here" : ""} ref={inputRef} />
+                <input className = "new-item-name" type="text" placeholder= {"Add New Item Here"} ref={inputRef} />
                 <div className ="qty-container">
+                    <label className ="new-qty-label">Qty:</label>
                     <input className ="new-qty" type="text" value={qty} onChange={handleQtyChange} />
                     <button className = "decrease" onClick={handleDecrease}>-</button>
                     <button className = "increase" onClick={handleIncrease}>+</button>

@@ -5,14 +5,16 @@ import {client} from './db.js'
 import cors from 'cors';
 import dotenv from 'dotenv'
 dotenv.config();
+import path from 'path'
 
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static('client')); // serves static files from the 'public' directory
+app.use(express.static(path.join(process.cwd(), './build')))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + './client/public/index.html'); // serves the index.html file
+  res.sendFile(path.join(process.cwd(), './build', 'index.html')); // serves the index.html file
 });
 
 //GET ALL

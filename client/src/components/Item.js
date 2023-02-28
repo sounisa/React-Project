@@ -14,7 +14,7 @@ export default function Item ({
 
 	const deleteItem = (id) => {
 		setDeletedItems([id])
-		console.log(id)
+		//console.log(id)
 	}
 
 
@@ -23,8 +23,8 @@ export default function Item ({
 			item_id: name,
 			item_name: value
 		})
-		console.log(value)
-		console.log(name)
+		//console.log(value)
+		//console.log(name)
 		
 	}
 	
@@ -33,8 +33,8 @@ export default function Item ({
 			item_id: name,
 			qty: value
 		})
-		console.log(value)
-		console.log(name)
+		//console.log(value)
+		//console.log(name)
 	}
 
     const handleCheckboxChange = (e) => {
