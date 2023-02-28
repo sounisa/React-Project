@@ -14,8 +14,6 @@ app.use(cors({
 app.use(express.json());
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const app = express();
-
 app.use(express.static(join(__dirname, 'client', 'public')));
 
 app.get('*', (req, res) => {
