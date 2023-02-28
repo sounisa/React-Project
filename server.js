@@ -1,9 +1,16 @@
 import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 8000;
-import {client} from './db.js'
+//import {client} from './db.js'
 import cors from 'cors';
 import dotenv from 'dotenv'
+import pkg from "pg";
+const {Pool} = pkg;
+
+const client = new Pool({
+    connectionString: process.env.DATABASE_URL
+})
+
 dotenv.config();
 
 app.use(cors());
@@ -13,7 +20,7 @@ app.use(express.static("client"));
 
 //TEST
 app.get(`/`, (req, res) => {
-    res.sendFile(__dirname + './client/index.html')
+    res.sendFile(__dirname + './client/public/index.html')
 });
 
 //GET ALL
