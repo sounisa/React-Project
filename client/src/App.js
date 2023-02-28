@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch('http://localhost:8000/items')
+      const response = await fetch('https://grocery-list-6j9a.onrender.com/items')
       const data = await response.json() 
       setItems(data)
   }
@@ -28,7 +28,7 @@ function App() {
 async function handleDeleteClick() {  
   if (deletedItems !== null) {
     try {
-      await fetch(`http://localhost:8000/items/${deletedItems[0]}`, {
+      await fetch(`https://grocery-list-6j9a.onrender.com/items/${deletedItems[0]}`, {
         method: 'DELETE',
       })
       console.log('Item Deleted')
@@ -44,7 +44,7 @@ handleDeleteClick()
 async function addToList() {
 
   try {
-      await fetch('http://localhost:8000/items', {
+      await fetch('https://grocery-list-6j9a.onrender.com/items', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -63,7 +63,7 @@ async function addToList() {
 async function saveName() {  
   if (editName !== null) {
     try {
-      await fetch(`http://localhost:8000/items/${editName.item_id}`, {
+      await fetch(`https://grocery-list-6j9a.onrender.com/items/${editName.item_id}`, {
         method: 'PATCH',
         headers: {
           "Content-Type": "application/json"
@@ -85,7 +85,7 @@ saveName()
 async function saveQty() {  
   if (editQty !== null) {
     try {
-      await fetch(`http://localhost:8000/items/${editQty.item_id}`, {
+      await fetch(`https://grocery-list-6j9a.onrender.com/items/${editQty.item_id}`, {
         method: 'PATCH',
         headers: {
           "Content-Type": "application/json"
