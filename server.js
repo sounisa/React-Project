@@ -13,7 +13,7 @@ app.use(express.static("client"));
 
 //TEST
 app.get(`/`, (req, res) => {
-    res.send(`Testing`)
+    res.sendFile(__dirname + './client/index.html')
 });
 
 //GET ALL
