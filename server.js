@@ -1,20 +1,14 @@
 import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 8000;
-//import {client} from './db.js'
+import {client} from './db.js'
 import cors from 'cors';
-import dotenv from 'dotenv'
 import path from 'path'
-import pkg from "pg";
-const {Pool} = pkg;
 
-const client = new Pool({
-    connectionString: process.env.DATABASE_URL
-})
 
-dotenv.config();
-
-app.use(cors());
+app.use(cors({
+    origin:'*'
+}));
 app.use(express.json());
 
 app.use(express.static(path.join(new URL('.', import.meta.url).pathname, 'client', 'public')));
