@@ -18,10 +18,10 @@ app.use(express.json());
 
 app.use(express.static("client"));
 
-//TEST
-// app.get(`/`, (req, res) => {
-//     res.sendFile(__dirname + './client/public/index.html')
-// });
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/client/public/index.html');
+  });
 
 //GET ALL
 app.get(`/items`, async (req, res) => {
