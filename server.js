@@ -11,10 +11,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.use(express.static(path.join(new URL('.', import.meta.url).pathname, 'client', 'public')));
+app.use(express.static(path.join(__dirname, 'client', 'public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(new URL('.', import.meta.url).pathname, 'client', 'public', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'public', 'index.html'));
 });
 
 //GET ALL
